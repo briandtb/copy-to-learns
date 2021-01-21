@@ -2,7 +2,7 @@
     "baseURL": "https://oauth2bin.heroku.com",
     "authCode": {
         "clientID": "clientID",
-        "clientSecret": "clientSecret",
+        "clientSecret": "clientSecret"
     },
     "implicit": {
         "clientID": "clientID"
