@@ -1,0 +1,17 @@
+[
+    {
+        "route": "/response",
+        "limit": 10,
+        "minutes": 60
+    },
+    {
+        "route": "/token",
+        "limit": 5,
+        "minutes": 60
+    },
+    {
+        "route": "/echo",
+        "limit": 50,
+        "minutes": 30
+    }
+]

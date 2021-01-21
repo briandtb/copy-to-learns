@@ -1,0 +1,56 @@
+{{ define "auth" }}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Authorize the application | OAuth 2.0 Bin</title>
+    <link rel="icon" href="/public/static/favicon.png" type="image/png" sizes="64x64">
+    <link rel="stylesheet" href="/public/static/light.css">
+    <style>
+        #form-logo {
+            max-width: 10%;
+            min-width: 200px;
+            margin: 30px;
+        }
+
+        #redirectURI {
+            margin: 20px 0px 0px 0px;
+            padding: 10px;
+            border: none;
+            background-color: #dadada;
+        }
+    </style>
+</head>
+
+<body>
+    {{ template "nav" . }}
+
+    <div id="grant-form">
+        <img src="/public/static/svg/logo.svg" alt="form-logo" id="form-logo">
+        <h1>OAuth 2.0 Bin would like to</h1>
+        <div class="container">
+            <ul>
+                {{ range .ScopeList }}
+                <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+        </div>
+        <form action="/response" method="POST">
+            <p>By clicking 'Accept', you agree that you are awesome.</p>
+            <input type="text" name="redirectURI" id="redirectURI" placeholder="Redirect URI (optional)" hidden>
+            <input type="text" name="flow" id="flow" value="{{ .Flow }}" hidden>
+            <br>
+            <input name="response" value="CANCEL" class="btn" id="cancel-btn" type="submit">
+            <input name="response" value="ACCEPT" class="btn" id="accept-btn" type="submit">
+        </form>
+    </div>
+    <script src="/public/static/authScreen.js"></script>
+</body>
+
+</html>
+
+{{ end }}

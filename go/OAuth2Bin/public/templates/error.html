@@ -1,0 +1,45 @@
+{{ define "error" }}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Error | OAuth 2.0 Bin</title>
+    <link rel="icon" href="/public/static/favicon-red.png" type="image/png" sizes="64x64">
+    <link rel="stylesheet" href="/public/static/light.css">
+    <style>
+        .container-vertical {
+            background-color: #c71c22;
+            color: white;
+        }
+
+        #titleStr {
+            font-size: 5em;
+            font-weight: lighter;
+        }
+
+        #descStr {
+            font-family: monospace;
+            font-weight: lighter;
+        }
+
+        img {
+            max-width: 10%;
+        }
+    </style>
+</head>
+<body>
+    {{ template "nav" . }}
+    <div class="container-vertical">
+        <img src="/public/static/warning.png" alt="warning-symbol">
+        <h1 id="titleStr">{{ .Title }}</h1>
+        <h1 id="descStr">{{ .Desc }}</h1>
+    </div>
+    {{ template "footer" }}
+</body>
+</html>
+
+{{ end }}

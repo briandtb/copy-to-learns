@@ -1,0 +1,25 @@
+{{ define "home" }}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OAuth 2.0 Bin</title>
+    <link rel="icon" href="/public/static/favicon.png" type="image/png" sizes="64x64">
+    <link rel="stylesheet" href="/public/static/light.css">
+</head>
+<body>
+    <div class="alert" hidden></div>
+    {{ template "nav" }}
+    {{ template "auth-code" . }}
+    {{ template "implicit" . }}
+    {{ template "ropc" . }}
+    {{ template "clientCreds" . }}
+    {{ template "footer" }}
+    <script async defer src="/public/static/index.js"></script>
+</body>
+</html>
+
+{{ end }}
