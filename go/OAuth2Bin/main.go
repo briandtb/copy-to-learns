@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"oauth2bin/oauth2/server"
+	"os"
+)
 
 func main() {
-	fmt.Printf("Hello World!")
+	var port = os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	server := server.NewOA2Server(port, "config/flowParams.json", "config/ratePolicies.csv")
+	server.Start()
 }
